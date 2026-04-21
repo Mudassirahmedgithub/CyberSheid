@@ -9,7 +9,7 @@ export default function Download() {
 
       {/* Download Button */}
       <a
-        href="https://github.com/Mudassirahmedgithub/CyberSheid/releases/download/Cybershield/Cybersheild.zip"
+        href="https://github.com/Mudassirahmedgithub/CyberSheid/releases/download/Cybersheild/Cybersheild.zip"
         target="_blank"
         className="mt-6 inline-block px-8 py-3 rounded-2xl bg-cyan-500 text-black font-semibold hover:scale-105 transition"
       >
