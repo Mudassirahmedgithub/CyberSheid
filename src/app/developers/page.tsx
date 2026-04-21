@@ -1,3 +1,5 @@
+import SiteFooter from '@/components/layouts/site-footer';
+import SiteHeader from '@/components/layouts/site-header';
 export default function Developers() {
   return (
     <main className="min-h-screen bg-slate-950 text-white px-8 py-16">
