@@ -1,10 +1,23 @@
 import "../styles/globals.css";
+import SiteHeader from "@/components/layouts/site-header";
+import SiteFooter from "@/components/layouts/site-footer";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export const metadata = {
+  title: "CyberShield",
+  description: "AI Network Intrusion Detection System",
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <body className="bg-white text-black">
+      <body className="bg-slate-950 text-white">
+        <SiteHeader />
         {children}
+        <SiteFooter />
       </body>
     </html>
   );
