@@ -31,6 +31,7 @@ export default function SiteHeader() {
             <li><Link href="/predict">Predict</Link></li>
             <li><Link href="/download">Download</Link></li>
             <li><Link href="/developers">Developers</Link></li>
+            <li><Link href="/about">Project</Link></li>
             <li>
               <Link href="/" className="cs-signout">
                 Sign In
@@ -62,6 +63,7 @@ export default function SiteHeader() {
         <Link href="/" onClick={() => setMobileNavOpen(false)}>Home</Link>
         <Link href="/predict" onClick={() => setMobileNavOpen(false)}>Predict</Link>
         <Link href="/download" onClick={() => setMobileNavOpen(false)}>Download</Link>
+        <Link href="/about" onClick={() => setMobileNavOpen(false)}>Project</Link>
         <Link href="/" onClick={() => setMobileNavOpen(false)}>
           Sign In
         </Link>

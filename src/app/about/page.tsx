@@ -888,17 +888,7 @@ export default function ProjectPage() {
         }
       `}</style>
 
-      <div className="proj-header" style={{ background: scrolled ? "rgba(13,17,23,0.96)" : "transparent" }}>
-        <div className="proj-header-inner">
-          <Link href="/" className="proj-logo">🛡️ CyberShield</Link>
-          <ul className="proj-nav">
-            <li><a href="#models">Models</a></li>
-            <li><a href="#tool">Tool</a></li>
-            <li><a href="#architecture">Architecture</a></li>
-            <li><Link href="/home1" className="proj-btn-nav">Dashboard</Link></li>
-          </ul>
-        </div>
-      </div>
+
 
       <main>
         {/* ── HERO ── */}
@@ -919,8 +909,8 @@ export default function ProjectPage() {
                 <button className="proj-btn-primary" onClick={() => document.getElementById("tool")?.scrollIntoView({ behavior: "smooth" })}>
                   ⚡ Explore Tool
                 </button>
-                <Link href="/home1" className="proj-btn-secondary">
-                  📊 View Dashboard
+                <Link href="/download" className="proj-btn-secondary">
+                  📊 View Download
                 </Link>
               </div>
             </div>
@@ -1109,7 +1099,7 @@ export default function ProjectPage() {
               Powered by 8+ trained models and real-time network analysis.
             </p>
             <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/home1" className="proj-btn-primary">
+              <Link href="/predict" className="proj-btn-primary">
                 ⚡ Start Predicting
               </Link>
               <a href="#tool" className="proj-btn-secondary" style={{ cursor: "pointer" }}>
@@ -1120,15 +1110,6 @@ export default function ProjectPage() {
         </section>
       </main>
 
-      {/* ── FOOTER ── */}
-      <footer className="proj-footer">
-        <div className="proj-footer-inner">
-          <p>
-            © {new Date().getFullYear()} <strong>CyberShield</strong> Project. All Rights Reserved.{" "}
-            Built with ML/DL and FastAPI. <a href="#">View Repository</a>
-          </p>
-        </div>
-      </footer>
 
       {/* ── SCROLL TOP ── */}
       <button
