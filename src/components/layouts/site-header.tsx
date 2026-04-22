@@ -30,34 +30,10 @@ export default function SiteHeader() {
           <ul className="cs-nav">
             <li><Link href="/predict">Predict</Link></li>
             <li><Link href="/download">Download</Link></li>
-
-            <li className="relative">
-              <button
-                onClick={() => setNotebookOpen(!notebookOpen)}
-                className="cs-nav-btn"
-              >
-                Notebook ▼
-              </button>
-
-              {notebookOpen && (
-                <ul className="cs-dropdown-menu open">
-                  <li>
-                    <a href="/static/Cyber_Attack-ML_DL.html">
-                      ML/DL Notebook
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/static/Cyber_Attack-Gen AI.html">
-                      Gen AI Notebook
-                    </a>
-                  </li>
-                </ul>
-              )}
-            </li>
-
+            <li><Link href="/developers">Developers</Link></li>
             <li>
               <Link href="/" className="cs-signout">
-                Sign Out
+                Sign In
               </Link>
             </li>
           </ul>
@@ -86,23 +62,8 @@ export default function SiteHeader() {
         <Link href="/" onClick={() => setMobileNavOpen(false)}>Home</Link>
         <Link href="/predict" onClick={() => setMobileNavOpen(false)}>Predict</Link>
         <Link href="/download" onClick={() => setMobileNavOpen(false)}>Download</Link>
-
-        <a
-          href="/static/Cyber_Attack-ML_DL.html"
-          onClick={() => setMobileNavOpen(false)}
-        >
-          ML/DL Notebook
-        </a>
-
-        <a
-          href="/static/Cyber_Attack-Gen AI.html"
-          onClick={() => setMobileNavOpen(false)}
-        >
-          Gen AI Notebook
-        </a>
-
         <Link href="/" onClick={() => setMobileNavOpen(false)}>
-          Sign Out
+          Sign In
         </Link>
       </nav>
 
@@ -152,7 +113,7 @@ export default function SiteHeader() {
         .cs-nav {
           display: flex;
           align-items: center;
-          gap: 0.25rem;
+          gap: 1.0rem;
           list-style: none;
           margin-left: auto;
         }

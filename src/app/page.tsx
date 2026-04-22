@@ -536,11 +536,11 @@ export default function Home() {
                 more accurate and proactive cyber attack prediction.
               </p>
               <div className="cs-hero-cta">
-                <Link href="/home1" className="cs-btn-primary">
+                <Link href="/predict" className="cs-btn-primary">
                   ⚡ Start Predicting
                 </Link>
-                <Link href="/graphs" className="cs-btn-ghost">
-                  📊 View Data
+                <Link href="/download" className="cs-btn-ghost">
+                  📊 Start Download
                 </Link>
               </div>
               <div className="cs-stats">
