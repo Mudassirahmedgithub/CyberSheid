@@ -6,16 +6,62 @@ const labels: Record<number, string> = {
   0: 'Benign',
   1: 'Bot',
   2: 'DDoS',
-  3: 'DDoS Hulk',
-  4: 'Attack',
+  3: 'DDoS GoldenEye',
+  4: 'DoS Hulk',
+  5: 'DoS SlowHTTPTest',
+  6: 'DoS Slowloris',
+  7: 'PortScan',
 };
 
 const labelMeta: Record<number, { color: string; bg: string; icon: string; desc: string }> = {
-  0: { color: '#28a745', bg: 'rgba(40,167,69,0.12)', icon: '✓', desc: 'No threat detected. Traffic appears normal.' },
-  1: { color: '#ffc107', bg: 'rgba(255,193,7,0.12)', icon: '⚠', desc: 'Automated bot activity detected.' },
-  2: { color: '#dc3545', bg: 'rgba(220,53,69,0.12)', icon: '⛔', desc: 'Distributed Denial of Service attack detected.' },
-  3: { color: '#dc3545', bg: 'rgba(220,53,69,0.15)', icon: '🛑', desc: 'High-volume DDoS Hulk attack pattern detected.' },
-  4: { color: '#e83e8c', bg: 'rgba(232,62,140,0.12)', icon: '☠', desc: 'Malicious attack traffic identified.' },
+  0: {
+    color: '#28a745',
+    bg: 'rgba(40,167,69,0.12)',
+    icon: '✓',
+    desc: 'No threat detected. Traffic appears normal.',
+  },
+  1: {
+    color: '#ffc107',
+    bg: 'rgba(255,193,7,0.12)',
+    icon: '⚠',
+    desc: 'Automated bot activity detected.',
+  },
+  2: {
+    color: '#dc3545',
+    bg: 'rgba(220,53,69,0.12)',
+    icon: '⛔',
+    desc: 'Distributed Denial of Service (DDoS) attack detected.',
+  },
+  3: {
+    color: '#fd7e14',
+    bg: 'rgba(253,126,20,0.12)',
+    icon: '🎯',
+    desc: 'DDoS GoldenEye attack pattern detected.',
+  },
+  4: {
+    color: '#b02a37',
+    bg: 'rgba(176,42,55,0.15)',
+    icon: '🛑',
+    desc: 'DoS Hulk attack detected with high-volume request flooding.',
+  },
+  5: {
+    color: '#6f42c1',
+    bg: 'rgba(111,66,193,0.12)',
+    icon: '🐢',
+    desc: 'DoS SlowHTTPTest attack detected using slow HTTP request exhaustion.',
+  },
+  6: {
+    color: '#20c997',
+    bg: 'rgba(32,201,151,0.12)',
+    icon: '🕸',
+    desc: 'DoS Slowloris attack detected using partial HTTP connections.',
+  },
+  7: {
+    color: '#0d6efd',
+    bg: 'rgba(13,110,253,0.12)',
+    icon: '🔍',
+    desc: 'Port scanning activity detected.',
+  },
 };
 
 const fields = [
@@ -75,19 +121,18 @@ export default function Page() {
 
       if (!res.ok) {
         setError(`Error ${res.status}: ${text}`);
-        setLoading(false);
         return;
       }
 
       const data = JSON.parse(text);
       const pred = data.prediction;
-      const label = labels[pred] || 'Unknown';
+      const label = labels[pred] ?? 'Unknown';
       setResult({ pred, label });
-    } catch (err: any) {
-      setError('Frontend Error: ' + err.message);
+    } catch (err) {
+      setError('Frontend Error: ' + (err instanceof Error ? err.message : String(err)));
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   const meta = result !== null ? labelMeta[result.pred] : null;
@@ -348,8 +393,6 @@ export default function Page() {
           flex-shrink: 0;
           margin-top: 0.1rem;
         }
-
-        .result-content {}
 
         .result-label {
           font-family: 'Poppins', sans-serif;
