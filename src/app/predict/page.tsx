@@ -56,7 +56,7 @@ const labelMeta: Record<number, { color: string; bg: string; icon: string; desc:
     icon: '🕸',
     desc: 'DoS Slowloris attack detected using partial HTTP connections.',
   },
-  7: {
+  9: {
     color: '#0d6efd',
     bg: 'rgba(13,110,253,0.12)',
     icon: '🔍',
