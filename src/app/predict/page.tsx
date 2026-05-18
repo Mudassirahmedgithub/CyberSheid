@@ -10,7 +10,8 @@ const labels: Record<number, string> = {
   4: 'DoS Hulk',
   5: 'DoS SlowHTTPTest',
   6: 'DoS Slowloris',
-  7: 'PortScan',
+  7: 'PortScan',  // ← keep this if API can return 7
+  9: 'PortScan',  
 };
 
 const labelMeta: Record<number, { color: string; bg: string; icon: string; desc: string }> = {
